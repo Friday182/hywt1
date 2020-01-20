@@ -59,6 +59,18 @@ server {
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 	}
+	
+	location /hywt/ {
+        root   /home/ubuntu/hywt1/;
+        index  index.html  index.htm;  
+    }
+	location /hywt/v1/ {
+        proxy_pass http://127.0.0.1:8089/; 
+    }
+	location /hywt/admin/ {
+        root   /home/ubuntu/hywt1/admin/;
+        index  index.html  index.htm;  
+    }
 
 	location /graphql/ {
 		proxy_pass http://ttm2020.pythonanywhere.com/graphql;
